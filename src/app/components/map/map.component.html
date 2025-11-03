@@ -1,0 +1,19 @@
+<div class="map-wrapper">
+  <div class="controls-card">
+    <h2>Battlefield Map</h2>
+    <div class="file-input">
+      <label for="mapFile" class="btn">Load Map JSON</label>
+      <input type="file" id="mapFile" (change)="handleFileSelect($event)" />
+    </div>
+    <button class="btn primary" [disabled]="!mapLoaded" (click)="handleFindPath()">
+      Find Path
+    </button>
+    <div class="status" [ngClass]="{'success': status.includes('✅'), 'error': status.includes('❌')}">
+      {{ status }}
+    </div>
+  </div>
+
+  <div class="canvas-container">
+    <canvas #mapCanvas width="600" height="600"></canvas>
+  </div>
+</div>
